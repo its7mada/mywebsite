@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>أحمد نزال </title>
+  <meta name="description" content="مرحبًا بك في موقع أحمد نزال، مطور برمجيات وكاتب شغوف ومبدع.">
+  <meta name="keywords" content="أحمد نزال, بورتفوليو, مطور برمجيات, مطور ويب, كاتب">
+
+  <link href="assets/img/logo.png" rel="icon">
+  <link href="assets/img/logo.png" rel="logo">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Aref+Ruqaa&display=swap" rel="stylesheet">
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #0d5952; /* Deep Teal */
+      --secondary-color: #f7a01d; /* Warm Gold */
+      --background-color: #f5f7fa; /* Light Gray */
+      --text-color: #4a5568; /* Grayish Blue */
+      --text-color-light: #ffffff;
+      --heading-font: 'Tajawal', sans-serif;
+      --body-font: 'Tajawal', sans-serif;
+      --logo-font: 'Aref Ruqaa', serif; 
+    }
+
+    body {
+      font-family: var(--body-font);
+      color: var(--text-color);
+      background-color: var(--background-color);
+    }
+    
+    /* Header & Navbar Design */
+    .header {
+        transition: all 0.5s;
+        z-index: 997;
+        padding: 20px 0;
+        background: var(--primary-color);
+    }
+    .header .logo {
+        text-decoration: none; 
+    }
+    .header .logo h1 {
+        font-family: var(--logo-font);
+        font-weight: 700;
+        color: var(--secondary-color);
+        margin: 0;
+        font-size: 32px; 
+    }
+    .header .logo i {
+        font-size: 28px;
+        margin-left: 10px;
+        color: var(--secondary-color);
+        position: relative;
+        top: 2px;
+    }
+    
+    /* Navigation Menu Style */
+    .navmenu {
+        flex-grow: 1;
+    }
+    .navmenu ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .navmenu li {
+        position: relative;
+    }
+    .navmenu a {
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 600;
+      font-size: 16px;
+      font-family: var(--heading-font);
+      transition: color 0.3s;
+      padding: 5px 20px;
+      text-decoration: none;
+    }
+    .navmenu a::after { 
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: var(--secondary-color);
+        transform-origin: bottom right;
+        transition: transform 0.3s ease-out;
+    }
+    .navmenu a:hover::after, .navmenu .active::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+    .navmenu a:hover, .navmenu .active {
+      color: var(--text-color-light);
+    }
+    .contact-btn {
+        background: var(--secondary-color);
+        color: var(--primary-color);
+        border-radius: 50px;
+        padding: 9px 25px;
+        font-weight: 700;
+        font-family: var(--heading-font);
+        transition: all 0.3s;
+        flex-shrink: 0; 
+    }
+    .contact-btn:hover {
+        background: #fff;
+        color: var(--primary-color);
+        transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 80px 0;
+        background-color: var(--primary-color);
+        color: var(--text-color-light);
+        position: relative;
+        overflow: hidden;
+    }
+    .hero .container {
+        position: relative;
+        z-index: 2;
+    }
+    .hero h1 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        font-family: var(--heading-font);
+        line-height: 1.6;
+        min-height: 150px; 
+        text-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    }
+    .hero .btn-primary {
+        background-color: var(--secondary-color);
+        border-color: var(--secondary-color);
+        border-radius: 50px;
+        padding: 12px 30px;
+        font-weight: 700;
+        font-family: var(--heading-font);
+        font-size: 16px;
+        color: var(--primary-color);
+        margin-top: 20px;
+    }
+    .hero .hero-img-frame {
+        position: relative;
+        width: 350px;
+        height: 350px;
+        margin: 0 auto;
+    }
+    .hero .hero-img-frame::before, .hero .hero-img-frame::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 2rem;
+        transition: all 0.5s ease;
+    }
+    .hero .hero-img-frame::before {
+        background: linear-gradient(45deg, var(--secondary-color), #f9d28a);
+        transform: rotate(-12deg);
+    }
+    .hero .hero-img-frame::after {
+        background: rgba(255,255,255,0.1);
+        transform: rotate(8deg);
+    }
+    .hero .hero-img-frame:hover::before, .hero .hero-img-frame:hover::after {
+        transform: rotate(0deg);
+    }
+    .hero .hero-img {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 1.5rem;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    
+    /* Flying Icons */
+    .flying-icons {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        overflow: hidden; z-index: 1;
+    }
+    .flying-icons i {
+        position: absolute;
+        display: block;
+        color: rgba(255, 255, 255, 0.1);
+        bottom: -150px;
+        animation: fly 20s linear infinite;
+    }
+    @keyframes fly {
+        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+    }
+
+
+    /* Skills Cards Section */
+    .skills-section {
+        padding: 80px 0;
+        position: relative;
+        background-color: var(--background-color);
+    }
+    .skills-section .wavy-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        background: var(--primary-color);
+        clip-path: ellipse(80% 100% at 50% 0%);
+    }
+    .skill-card-link {
+        display: block;
+        text-decoration: none;
+        height: 100%;
+    }
+    .skill-card {
+        background: #fff;
+        padding: 30px;
+        padding-top: 50px;
+        margin-top: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+        text-align: center;
+        transition: all 0.3s ease;
+        position: relative;
+        height: 100%;
+    }
+    .skill-card-link:hover .skill-card {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+    .skill-card .icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+        color: #fff;
+        background: var(--secondary-color);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: -35px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .skill-card h3 {
+        font-family: var(--heading-font);
+        font-weight: 700;
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin-top: 10px;
+    }
+    .skill-card p {
+        color: var(--text-color);
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 40px 0;
+        background: var(--primary-color);
+        color: rgba(255,255,255,0.7);
+    }
+    .footer .copyright {
+        text-align: center;
+    }
+    .footer .social-links a {
+        color: rgba(255,255,255,0.7);
+        margin: 0 10px;
+        font-size: 1.2rem;
+        transition: 0.3s;
+    }
+    .footer .social-links a:hover {
+        color: var(--secondary-color);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header id="header" class="header sticky-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <h1><i class="bi bi-code-slash"></i> أحمد نزّال</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu mx-auto">
+        <ul>
+          <li><a href="index.html" class="active">الصفحة الرئيسية</a></li>
+          <li><a href="about.html">من أنا</a></li>
+          <li><a href="achievements.html">إنجازاتي</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn contact-btn d-none d-lg-flex" href="contact.html">تواصل معي</a>
+      
+      <i class="mobile-nav-toggle d-lg-none ms-auto bi bi-list"></i>
+
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="flying-icons"></div>
+      <div class="container">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-6" data-aos="fade-left">
+            <div class="hero-content text-center text-lg-end">
+              <h1><span class="typed-text"></span></h1>
+              <a href="about.html" class="btn btn-primary">من أنا؟</a>
+            </div>
+          </div>
+          <div class="col-lg-6 d-flex justify-content-center" data-aos="fade-right">
+            <div class="hero-img-frame">
+              <img src="assets/img/profile-img.PNG" class="hero-img" alt="Ahmad Nazzal">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills-section">
+        <div class="wavy-bg"></div>
+        <div class="container position-relative">
+            <div class="row gy-5">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <a href="#" class="skill-card-link">
+                        <div class="skill-card">
+                            <div class="icon"><i class="bi bi-code-slash"></i></div>
+                            <h3>مطور ويب</h3>
+                            <p>بناء مواقع وتطبيقات ويب سريعة وآمنة باستخدام أحدث التقنيات.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#" class="skill-card-link">
+                        <div class="skill-card">
+                            <div class="icon"><i class="bi bi-braces"></i></div>
+                            <h3>لغات البرمجة</h3>
+                            <p>أمتلك خبرة قوية في لغات البرمجة والتعامل معها</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#" class="skill-card-link">
+                        <div class="skill-card">
+                            <div class="icon"><i class="bi bi-hdd-network-fill"></i></div>
+                            <h3>الشبكات</h3>
+                            <p>ماهر في إعداد وإدارة الشبكات باستخدام ادوات ادارة الشبكات المناسبة </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <a href="#" class="skill-card-link">
+                        <div class="skill-card">
+                            <div class="icon"><i class="bi bi-pencil-square"></i></div>
+                            <h3>كاتب إبداعي</h3>
+                            <p>مؤلف رواية "وفاء خائن"، أجمع بين شغف التكنولوجيا والكتابة الإبداعية.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="copyright">
+        &copy; حقوق النشر 2025, <strong><span>أحمد نزال</span></strong>. جميع الحقوق محفوظة
+      </div>
+      <div class="social-links">
+        <a href="https://github.com/its7mada" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/its7mada" target="_blank"><i class="bi bi-linkedin"></i></a>
+        <a href="https://www.instagram.com/its7mada/" target="_blank"><i class="bi bi-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      "use strict";
+
+      AOS.init({
+        duration: 1000,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      });
+      
+      // Flying icons generation
+      const iconsContainer = document.querySelector('.flying-icons');
+      if(iconsContainer) {
+        const icons = ['bi-git', 'bi-bootstrap', 'bi-filetype-java', 'bi-database', 'bi-braces', 'bi-hdd-network-fill'];
+        for(let i = 0; i < 15; i++) {
+          const icon = document.createElement('i');
+          icon.className = `bi ${icons[(Math.random() * icons.length) | 0]}`;
+          icon.style.left = `${Math.random() * 100}vw`;
+          icon.style.animationDelay = `${Math.random() * 10}s`;
+          icon.style.animationDuration = `${15 + Math.random() * 10}s`;
+          icon.style.fontSize = `${20 + Math.random() * 30}px`;
+          iconsContainer.appendChild(icon);
+        }
+      }
+
+      // Typewriter Effect
+      const typed = new Typed('.typed-text', {
+        strings: [
+            "أكتب، أبرمج، أبتكر بإتقان وإيمان بأن كل سطر برمجي يمكنه تغيير العالم.",
+            "كاتب يحول الكلمات إلى عوالم، ومبرمج يحول الأفكار إلى واقع."
+        ],
+        typeSpeed: 40,
+        backSpeed: 15,
+        backDelay: 2500,
+        loop: true,
+        smartBackspace: false
+      });
+
+    });
+  </script>
+
+</body>
+</html>

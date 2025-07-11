@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>من أنا - أحمد نزال</title>
+  <meta name="description" content="تعرف على أحمد نزال، مطور برمجيات وكاتب شغوف ومبدع.">
+  <meta name="keywords" content="أحمد نزال, من أنا, بورتفوليو, مطور برمجيات, كاتب">
+  <link href="assets/img/logo.png" rel="icon">
+  <link href="assets/img/logo.png" rel="logo">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Aref+Ruqaa&display=swap" rel="stylesheet">
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #0d5952; /* Deep Teal */
+      --secondary-color: #f7a01d; /* Warm Gold */
+      --background-color: #f5f7fa; /* Light Gray */
+      --text-color: #4a5568; /* Grayish Blue */
+      --text-color-light: #ffffff;
+      --heading-font: 'Tajawal', sans-serif;
+      --body-font: 'Tajawal', sans-serif;
+      --logo-font: 'Aref Ruqaa', serif; 
+    }
+
+    body {
+      font-family: var(--body-font);
+      color: var(--text-color);
+      background-color: var(--background-color);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Flying Icons Background */
+    .flying-icons-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+        pointer-events: none;
+    }
+    .flying-icons-bg i {
+        position: absolute;
+        display: block;
+        color: rgba(44, 62, 80, 0.1); 
+        bottom: -150px;
+        animation: fly 25s linear infinite;
+    }
+    @keyframes fly {
+        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+    }
+    
+    /* Header & Navbar */
+    .header {
+        transition: all 0.5s;
+        z-index: 997;
+        padding: 20px 0;
+        background: var(--primary-color);
+    }
+    .header .logo {
+        text-decoration: none;
+    }
+    .header .logo h1 {
+        font-family: var(--logo-font);
+        font-weight: 700;
+        color: var(--secondary-color);
+        margin: 0;
+        font-size: 28px;
+    }
+    .header .logo i {
+        font-size: 24px;
+        margin-left: 10px;
+        color: var(--secondary-color);
+        position: relative;
+        top: -2px;
+    }
+    
+    /* Navigation Menu Style */
+    .navmenu ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+    .navmenu li {
+        position: relative;
+    }
+    .navmenu a {
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 600;
+      font-size: 16px;
+      font-family: var(--heading-font);
+      transition: color 0.3s;
+      padding: 5px 20px;
+      text-decoration: none;
+    }
+    .navmenu a::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: var(--secondary-color);
+        transform-origin: bottom right;
+        transition: transform 0.3s ease-out;
+    }
+    .navmenu a:hover::after, .navmenu .active::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+    .navmenu a:hover, .navmenu .active {
+      color: var(--text-color-light);
+    }
+    .contact-btn {
+        background: var(--secondary-color);
+        color: var(--primary-color);
+        border-radius: 50px;
+        padding: 9px 25px;
+        font-weight: 700;
+        font-family: var(--heading-font);
+        transition: all 0.3s;
+        flex-shrink: 0;
+    }
+    .contact-btn:hover {
+        background: #fff;
+        color: var(--primary-color);
+        transform: translateY(-2px);
+    }
+
+    .main {
+        padding-top: 60px;
+    }
+    
+    /* General Section Styles */
+    .section {
+        padding: 60px 0;
+    }
+    .section-title {
+        text-align: center;
+        padding-bottom: 40px;
+        position: relative;
+    }
+    .section-title h2 {
+        font-family: var(--heading-font);
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+    }
+    /* Modified style for the descriptive phrase */
+    .section-title p {
+        background: var(--secondary-color); /* Yellow background */
+        color: var(--primary-color); /* Dark text for readability */
+        padding: 6px 18px; /* Smaller padding */
+        border-radius: 50px;
+        display: inline-block;
+        font-weight: 600;
+        font-size: 0.9rem; /* Smaller text */
+        margin-bottom: 20px;
+    }
+  
+    /* About Section */
+    #about .profile-img {
+      border-radius: 1.5rem;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+    #about h3 {
+        font-family: var(--heading-font);
+        font-weight: 700;
+        color: var(--primary-color);
+        font-size: 1.8rem;
+    }
+    #about .personal-info-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 1.5rem;
+    }
+    #about .personal-info-list li {
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+    }
+    #about .personal-info-list i {
+        font-size: 1.2rem;
+        color: var(--secondary-color);
+        margin-left: 15px;
+        width: 20px;
+    }
+    #about .personal-info-list strong {
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-left: 10px;
+        min-width: 110px;
+    }
+
+    /* Skills & Experience Sections */
+    .skills-card {
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        height: 100%;
+    }
+    .skills-card .icon-wrapper {
+        font-size: 2.5rem;
+        color: var(--secondary-color);
+        margin-bottom: 15px;
+    }
+    .skills-card h4 {
+        font-family: var(--heading-font);
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: var(--primary-color);
+    }
+    .experience-timeline {
+        position: relative;
+    }
+    .experience-timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 12px;
+      height: 100%;
+      width: 4px;
+      background: #e0e7ff;
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 50px;
+      padding-right: 40px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      right: 4px;
+      top: 5px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--secondary-color);
+      border: 4px solid var(--background-color);
+    }
+    .timeline-item h4 {
+        font-family: var(--heading-font);
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+    }
+    .timeline-item h4 i {
+        font-size: 1.4rem;
+        color: var(--secondary-color);
+        margin-left: 10px;
+    }
+    .timeline-item h5 {
+        background: var(--primary-color);
+        color: #fff;
+        padding: 5px 15px;
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 500;
+        border-radius: 20px;
+        margin-bottom: 10px;
+    }
+    .timeline-item ul {
+        padding-right: 20px;
+        margin-top: 10px;
+        list-style: square;
+    }
+    .certificate-btn {
+        background-color: var(--secondary-color);
+        color: #fff;
+        padding: 4px 12px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.75rem;
+        margin-right: 10px;
+        display: inline-flex;
+        align-items: center;
+    }
+    .certificate-btn:hover {
+        background-color: #d48c1a;
+        color: #fff;
+    }
+    .certificate-btn .bi-patch-check-fill {
+        color: #3b82f6;
+        margin-left: 4px;
+        font-size: 1.1em;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 40px 0;
+        background: var(--primary-color);
+        color: rgba(255,255,255,0.7);
+    }
+    .footer .copyright {
+        text-align: center;
+    }
+    .footer .social-links a {
+        color: rgba(255,255,255,0.7);
+        margin: 0 10px;
+        font-size: 1.2rem;
+        transition: 0.3s;
+    }
+    .footer .social-links a:hover {
+        color: var(--secondary-color);
+    }
+    
+    .scroll-top {
+        position: fixed;
+        visibility: hidden;
+        opacity: 0;
+        right: 15px;
+        bottom: 15px;
+        z-index: 999;
+        background: var(--secondary-color);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        transition: all 0.4s;
+    }
+    .scroll-top i {
+        font-size: 24px;
+        color: #fff;
+        line-height: 0;
+    }
+    .scroll-top:hover {
+        background: var(--primary-color);
+        color: #fff;
+    }
+    .scroll-top.active {
+        visibility: visible;
+        opacity: 1;
+    }
+
+  </style>
+</head>
+
+<body class="about-page">
+  
+  <div class="flying-icons-bg"></div>
+
+  <header id="header" class="header d-flex align-items-center">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      
+      <a href="index.html" class="logo d-flex align-items-center">
+        <h1><i class="bi bi-code-slash"></i> أحمد نزّال</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">الصفحة الرئيسية</a></li>
+          <li><a href="about.html" class="active">من أنا</a></li>
+          <li><a href="achievements.html">إنجازاتي</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn contact-btn" href="contact.html">تواصل معي</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <section id="about" class="about section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>من أنا</h2>
+            <p>لمحة عني، مهاراتي، وقصتي</p>
+        </div>
+        <div class="row gy-4 align-items-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-5" data-aos="fade-right">
+            <img src="assets/img/profile-img.PNG" class="img-fluid profile-img" alt="Profile Picture of Ahmad Nazzal">
+          </div>
+          <div class="col-lg-7" data-aos="fade-left">
+            <h3>مطور برمجيات وكاتب إبداعي</h3>
+            <p class="fst-italic py-3">
+مطور ويب بخبرة في تطوير الواجهات وتصميم المواقع، عملت على عدة مشاريع حرة وقدّمت دعماً أكاديمياً في المجال التقني. أمتلك خلفية قوية في البرمجة والتصميم ، إلى جانب تدريب في هندسة البرمجيات وإدارة وبدء المشاريع الناجحة. كما أهوى الكتابة وأدمج بين الجانب التقني والإبداعي في أعمالي.            </p>
+            <ul class="personal-info-list">
+                <li><i class="bi bi-person"></i> <strong>الاسم:</strong> <span>أحمد سائد نزال</span></li>
+                <li><i class="bi bi-telephone"></i> <strong>الهاتف:</strong> <span> 56-990-0290(970)+</span></li>
+                <li><i class="bi bi-envelope"></i> <strong>البريد الإلكتروني:</strong> <span>a.nazzal2019@gmail.com</span></li>
+                <li><i class="bi bi-geo-alt"></i> <strong>الموقع:</strong> <span>جنين، فلسطين</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="skills section bg-light">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>المهارات التقنية</h2>
+          <p>المهارات التي اتمتع بها وأستخدمها لبناء مشاريع رائعة</p>
+        </div>
+        <div class="row gy-4">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="skills-card text-center">
+                    <div class="icon-wrapper"><i class="bi bi-code-slash"></i></div>
+                    <h4>لغات البرمجة</h4>
+                    <p>قوي في Java، ولدي إلمام جيد بـ Python, C++, JavaScript</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="skills-card text-center">
+                    <div class="icon-wrapper"><i class="bi bi-bootstrap"></i></div>
+                    <h4>أطر العمل</h4>
+                    <p>خبرة في استخدام أطر عمل للتصميم مثل Bootstrap</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="skills-card text-center">
+                    <div class="icon-wrapper"><i class="bi bi-hdd-network-fill"></i></div>
+                    <h4>الشبكات</h4>
+                    <p>ماهر في إعداد وإدارة الشبكات باستخدام Cisco Packet Tracer</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="skills-card text-center">
+                    <div class="icon-wrapper"><i class="bi bi-database-fill-gear"></i></div>
+                    <h4>قواعد البيانات</h4>
+                    <p>خبرة جيدة في التعامل مع قواعد بيانات    MySQL بالاضافة الى Mongo DB</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="skills-card text-center">
+                    <div class="icon-wrapper"><i class="bi bi-git"></i></div>
+                    <h4>التحكم بالإصدارات</h4>
+                    <p>استخدم Git & GitHub لإدارة المشاريع وتتبع التغييرات</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="skills-card text-center">
+                    <div class="icon-wrapper"><i class="bi bi-tools"></i></div>
+                    <h4>مهارات أخرى</h4>
+                    <p>حل المشكلات، تصميم الخوارزميات، والعمل ضمن فريق</p>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="experience section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>التدريب والخبرات</h2>
+          <p>رحلتي المهنية وأبرز المحطات التعليمية</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <div class="experience-timeline">
+              <div class="timeline-item" data-aos="fade-up">
+                <h4><i class="bi bi-code-slash"></i>مطور واجهات أمامية (عمل حر)</h4>
+                <h5>أكتوبر 2024 – الآن</h5>
+                <ul>
+                  <li>بناء مواقع وتطبيقات ويب متجاوبة باستخدام HTML, CSS, JavaScript.</li>
+                </ul>
+              </div>
+              <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                <h4><i class="bi bi-layers-fill"></i>هندسة البرمجيات
+                  <a href="https://coursera.org/share/b6619bf6ae0fa25ff3090c6b9b3d6f3b" target="_blank" class="certificate-btn">شهادة<i class="bi bi-patch-check-fill"></i></a>
+                </h4>
+                <h5>ديسمبر 2024 – فبراير 2025</h5>
+                <p><em>جامعة هونغ كونغ (عن بعد)</em></p>
+                <ul><li>اكتسبت معرفة قوية في عملية تطوير البرمجيات، بما في ذلك التحليل، التصميم (OOP)، أنماط التصميم، UML، الاختبار، وأدوات إدارة المشاريع.</li></ul>
+              </div>
+              <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                <h4><i class="bi bi-clipboard-check-fill"></i>أساسيات إدارة المشاريع
+                  <a href="https://coursera.org/share/b779981c9d7129554f2494ba1df9a808" target="_blank" class="certificate-btn">شهادة<i class="bi bi-patch-check-fill"></i></a>
+                </h4>
+                <h5>يناير 2025 – فبراير 2025</h5>
+                <p><em>جوجل (عن بعد)</em></p>
+                <ul><li>تعلمت أدوار إدارة المشاريع، دورة حياة المشروع، والمنهجيات، وكيف يؤثر الهيكل التنظيمي وثقافة الشركة على نجاح المشروع.</li></ul>
+              </div>
+              <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                <h4><i class="bi bi-lightbulb-fill"></i>بدء مشروع ناجح
+                    <a href="https://coursera.org/share/25023286bb99c852f022b524f17b1241" target="_blank" class="certificate-btn">شهادة<i class="bi bi-patch-check-fill"></i></a>
+                </h4>
+                <h5>يناير 2025 – فبراير 2025</h5>
+                <p><em>جوجل (عن بعد)</em></p>
+                <ul><li>تعلمت أن مرحلة البدء ضرورية لتحديد أهداف المشروع ونطاقه، إنشاء ميثاق المشروع، تحليل أصحاب المصلحة، وتوضيح الأدوار باستخدام مخططات RACI.</li></ul>
+              </div>
+              <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                <h4><i class="bi bi-clock-history"></i>إدارة الوقت بفعالية
+                    <a href="https://coursera.org/share/0e0c01006873a5b63609e32b79273183" target="_blank" class="certificate-btn">شهادة<i class="bi bi-patch-check-fill"></i></a>
+                </h4>
+                <h5>يناير 2025 – فبراير 2025</h5>
+                <p><em>جامعة الفيصل (عن بعد)</em></p>
+                <ul><li>تعلمت مهارات إدارة الوقت الفعالة مثل التخطيط، تحديد الأهداف، تحديد الأولويات، واتخاذ القرار لزيادة الإنتاجية وإدارة المهام بكفاءة.</li></ul>
+              </div>
+              <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
+                <h4><i class="bi bi-easel2-fill"></i>مهارات العرض والتقديم
+                    <a href="https://www.coursera.org/account/accomplishments/verify/O6XM8LYFCFV7" target="_blank" class="certificate-btn">شهادة<i class="bi bi-patch-check-fill"></i></a>
+                </h4>
+                <h5>ديسمبر 2024 – فبراير 2025</h5>
+                <p><em>جامعة الفيصل (عن بعد)</em></p>
+                <ul><li>أكملت دورة في التواصل المقنع، مما أدى إلى تحسين مهاراتي اللفظية وغير اللفظية، والخطابة، واستهداف الجمهور، وتقديم العروض بثقة.</li></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="copyright">
+        &copy; حقوق النشر 2025, <strong><span>أحمد نزال</span></strong>. جميع الحقوق محفوظة
+      </div>
+      <div class="social-links">
+        <a href="https://github.com/its7mada" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/its7mada" target="_blank"><i class="bi bi-linkedin"></i></a>
+        <a href="https://www.instagram.com/its7mada/" target="_blank"><i class="bi bi-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+  
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  
+  <script src="assets/js/main.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      "use strict";
+
+      AOS.init({
+        duration: 1000,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      });
+
+      // Flying icons generation
+      const iconsContainer = document.querySelector('.flying-icons-bg');
+      if(iconsContainer) {
+        const icons = ['bi-code-slash', 'bi-braces', 'bi-git', 'bi-database', 'bi-bootstrap', 'bi-hdd-network-fill'];
+        for(let i = 0; i < 20; i++) {
+          const icon = document.createElement('i');
+          icon.className = `bi ${icons[(Math.random() * icons.length) | 0]}`;
+          icon.style.left = `${Math.random() * 100}vw`;
+          icon.style.animationDelay = `${Math.random() * 10}s`;
+          icon.style.animationDuration = `${15 + Math.random() * 10}s`;
+          icon.style.fontSize = `${25 + Math.random() * 35}px`; 
+          iconsContainer.appendChild(icon);
+        }
+      }
+
+      let scrollTop = document.querySelector('.scroll-top');
+      function toggleScrollTop() {
+        if (scrollTop) {
+          window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+        }
+      }
+      window.addEventListener('load', toggleScrollTop);
+      document.addEventListener('scroll', toggleScrollTop);
+
+    });
+  </script>
+
+</body>
+
+</html>

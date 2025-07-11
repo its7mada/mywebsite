@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>تواصل معي - أحمد نزال</title>
+  <meta name="description" content="تواصل مع أحمد نزال لمشاريع حرة، تعاون، أو أي استفسارات.">
+  <meta name="keywords" content="تواصل, أحمد نزال, بورتفوليو, مطور برمجيات">
+
+  <link href="assets/img/logo.png" rel="icon">
+  <link href="assets/img/logo.png" rel="logo">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Aref+Ruqaa&display=swap" rel="stylesheet">
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #0d5952; /* Deep Teal */
+      --secondary-color: #f7a01d; /* Warm Gold */
+      --background-color: #f5f7fa; /* Light Gray */
+      --text-color: #4a5568; /* Grayish Blue */
+      --text-color-light: #ffffff;
+      --heading-font: 'Tajawal', sans-serif;
+      --body-font: 'Tajawal', sans-serif;
+      --logo-font: 'Aref Ruqaa', serif; 
+    }
+
+    body {
+      font-family: var(--body-font);
+      color: var(--text-color);
+      background-color: var(--background-color);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Flying Icons Background */
+    .flying-icons-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+        pointer-events: none;
+    }
+    .flying-icons-bg i {
+        position: absolute;
+        display: block;
+        color: rgba(44, 62, 80, 0.1);
+        bottom: -150px;
+        animation: fly 25s linear infinite;
+    }
+    @keyframes fly {
+        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+    }
+    
+    /* Header & Navbar */
+    .header {
+        transition: all 0.5s;
+        z-index: 997;
+        padding: 20px 0;
+        background: var(--primary-color);
+    }
+    .header .logo {
+        text-decoration: none;
+        flex-shrink: 0; /* Prevent logo from shrinking */
+    }
+    .header .logo h1 {
+        font-family: var(--logo-font);
+        font-weight: 700;
+        color: var(--secondary-color);
+        margin: 0;
+        font-size: 32px;
+    }
+    .header .logo i {
+        font-size: 28px;
+        margin-left: 10px;
+        color: var(--secondary-color);
+        position: relative;
+        top: 2px;
+    }
+    
+    /* Navigation Menu Style */
+    .navmenu {
+        flex-grow: 1; /* Allow nav to take available space */
+    }
+    .navmenu ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Center the links */
+    }
+    .navmenu li {
+        position: relative;
+    }
+    .navmenu a {
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 600;
+      font-size: 16px;
+      font-family: var(--heading-font);
+      transition: color 0.3s;
+      padding: 5px 20px;
+      text-decoration: none;
+    }
+    .navmenu a::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: var(--secondary-color);
+        transform-origin: bottom right;
+        transition: transform 0.3s ease-out;
+    }
+    .navmenu a:hover::after, .navmenu .active::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+    .navmenu a:hover, .navmenu .active {
+      color: var(--text-color-light);
+    }
+
+    .main {
+        padding-top: 60px;
+    }
+    
+    /* Contact Section Styles */
+    .section {
+        padding: 60px 0;
+    }
+    .section-title h2 {
+        font-family: var(--heading-font);
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        text-align: center;
+        padding-bottom: 40px;
+    }
+    .contact .info-card {
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        width: 100%;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+    }
+    .contact .info-card i {
+        font-size: 2rem;
+        color: var(--secondary-color);
+        margin-left: 20px;
+    }
+    .contact .info-card h4 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        font-family: var(--heading-font);
+        color: var(--primary-color);
+        margin-bottom: 5px;
+    }
+    .contact .info-card p {
+        margin-bottom: 0;
+        font-size: 1rem;
+    }
+    .contact .contact-form {
+        width: 100%;
+        background: #fff;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        height: 100%;
+    }
+    .contact-form .form-control {
+        border-radius: 10px;
+        padding: 12px;
+    }
+    .contact-form .form-control:focus {
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 0 0.25rem rgba(24, 188, 156, 0.25);
+    }
+    .contact-form button[type="submit"] {
+        background: var(--primary-color);
+        border: 0;
+        padding: 12px 35px;
+        color: #fff;
+        transition: 0.4s;
+        border-radius: 50px;
+        font-weight: 600;
+        font-family: var(--heading-font);
+    }
+    .contact-form button[type="submit"]:hover {
+        background: var(--secondary-color);
+        color: var(--primary-color);
+    }
+
+    /* Footer */
+    .footer {
+        padding: 40px 0;
+        background: var(--primary-color);
+        color: rgba(255,255,255,0.7);
+    }
+    .footer .copyright {
+        text-align: center;
+    }
+    .footer .social-links a {
+        color: rgba(255,255,255,0.7);
+        margin: 0 10px;
+        font-size: 1.2rem;
+        transition: 0.3s;
+    }
+    .footer .social-links a:hover {
+        color: var(--secondary-color);
+    }
+    
+    .scroll-top {
+        position: fixed;
+        visibility: hidden;
+        opacity: 0;
+        right: 15px;
+        bottom: 15px;
+        z-index: 999;
+        background: var(--secondary-color);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        transition: all 0.4s;
+    }
+    .scroll-top i {
+        font-size: 24px;
+        color: #fff;
+        line-height: 0;
+    }
+    .scroll-top:hover {
+        background: var(--primary-color);
+        color: #fff;
+    }
+    .scroll-top.active {
+        visibility: visible;
+        opacity: 1;
+    }
+  </style>
+</head>
+
+<body class="contact-page">
+  
+  <div class="flying-icons-bg"></div>
+
+  <header id="header" class="header d-flex align-items-center">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <h1><i class="bi bi-code-slash"></i> أحمد نزّال</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">الصفحة الرئيسية</a></li>
+          <li><a href="about.html">من أنا</a></li>
+          <li><a href="achievements.html">إنجازاتي</a></li>
+          <li><a href="contact.html" class="active">تواصل معي</a></li>
+        </ul>
+      </nav>
+
+      <div class="ms-auto">
+        </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <section id="contact" class="contact section">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>تواصل معي</h2>
+        </div>
+        <div class="row gy-4">
+          <div class="col-lg-5">
+            <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="bi bi-geo-alt-fill"></i>
+                <div>
+                  <h4>الموقع</h4>
+                  <p>جنين، فلسطين</p>
+                </div>
+            </div>
+            <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="bi bi-envelope-fill"></i>
+                <div>
+                  <h4>البريد الإلكتروني</h4>
+                  <p>a.nazzal2019@gmail.com</p>
+                </div>
+            </div>
+            <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+                <i class="bi bi-telephone-fill"></i>
+                <div>
+                  <h4>اتصل بي</h4>
+                  <p> 56-990-0290(970)+</p>
+                </div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <form action="forms/contact.php" method="post" class="contact-form" data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-4">
+                <div class="col-md-6">
+                  <input type="text" name="name" id="name" class="form-control" placeholder="اسمك" required="">
+                </div>
+                <div class="col-md-6 ">
+                  <input type="email" id="email" class="form-control" name="email" placeholder="بريدك الإلكتروني" required="">
+                </div>
+                <div class="col-md-12">
+                  <input type="text" id="subject" class="form-control" name="subject" placeholder="الموضوع" required="">
+                </div>
+                <div class="col-md-12">
+                  <textarea class="form-control" id="message" name="message" rows="6" placeholder="الرسالة" required=""></textarea>
+                </div>
+                <div class="col-md-12 text-center">
+               
+                  <button type="submit" onclick="sendMail()">إرسال الرسالة</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="copyright">
+        &copy; حقوق النشر 2025, <strong><span>أحمد نزال</span></strong>. جميع الحقوق محفوظة
+      </div>
+      <div class="social-links">
+        <a href="https://github.com/its7mada" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/its7mada" target="_blank"><i class="bi bi-linkedin"></i></a>
+        <a href="https://www.instagram.com/its7mada/" target="_blank"><i class="bi bi-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+  
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      "use strict";
+
+      AOS.init({
+        duration: 1000,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      });
+
+      // Flying icons generation
+      const iconsContainer = document.querySelector('.flying-icons-bg');
+      if(iconsContainer) {
+        const icons = ['bi-code-slash', 'bi-braces', 'bi-git', 'bi-database', 'bi-bootstrap', 'bi-hdd-network-fill'];
+        for(let i = 0; i < 20; i++) {
+          const icon = document.createElement('i');
+          icon.className = `bi ${icons[(Math.random() * icons.length) | 0]}`;
+          icon.style.left = `${Math.random() * 100}vw`;
+          icon.style.animationDelay = `${Math.random() * 10}s`;
+          icon.style.animationDuration = `${15 + Math.random() * 10}s`;
+          icon.style.fontSize = `${25 + Math.random() * 35}px`; 
+          iconsContainer.appendChild(icon);
+        }
+      }
+
+      let scrollTop = document.querySelector('.scroll-top');
+      function toggleScrollTop() {
+        if (scrollTop) {
+          window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+        }
+      }
+      window.addEventListener('load', toggleScrollTop);
+      document.addEventListener('scroll', toggleScrollTop);
+
+    });
+  </script>
+</script>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "y7USp_dMgEjs1oM3C",
+      });
+   })();
+</script>
+<script src="assets\js\sendemail.js"></script>
+</body>
+
+</html>
