@@ -27,7 +27,7 @@
       --text-color-light: #ffffff;
       --heading-font: 'Tajawal', sans-serif;
       --body-font: 'Tajawal', sans-serif;
-      --logo-font: 'Aref Ruqaa', serif; 
+      --logo-font: 'Aref Ruqaa', serif;
     }
 
     body {
@@ -40,50 +40,50 @@
 
     /* Flying Icons Background */
     .flying-icons-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        overflow: hidden;
-        pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
     }
     .flying-icons-bg i {
-        position: absolute;
-        display: block;
-        color: rgba(44, 62, 80, 0.1); 
-        bottom: -150px;
-        animation: fly 25s linear infinite;
+      position: absolute;
+      display: block;
+      color: rgba(44, 62, 80, 0.15);
+      bottom: -150px;
+      animation: fly 25s linear infinite;
     }
     @keyframes fly {
-        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-        100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
     }
     
     /* Header & Navbar */
     .header {
-        transition: all 0.5s;
-        z-index: 997;
-        padding: 20px 0;
-        background: var(--primary-color);
+      transition: all 0.5s;
+      z-index: 997;
+      padding: 20px 0;
+      background: var(--primary-color);
     }
     .header .logo {
-        text-decoration: none;
+      text-decoration: none;
     }
     .header .logo h1 {
-        font-family: var(--logo-font);
-        font-weight: 700;
-        color: var(--secondary-color);
-        margin: 0;
-        font-size: 28px;
+      font-family: var(--logo-font);
+      font-weight: 700;
+      color: var(--secondary-color);
+      margin: 0;
+      font-size: 28px;
     }
     .header .logo i {
-        font-size: 24px;
-        margin-left: 10px;
-        color: var(--secondary-color);
-        position: relative;
-        top: -2px;
+      font-size: 24px;
+      margin-left: 10px;
+      color: var(--secondary-color);
+      position: relative;
+      top: -2px;
     }
     
     /* Navigation Menu Style */
@@ -95,7 +95,7 @@
       align-items: center;
     }
     .navmenu li {
-        position: relative;
+      position: relative;
     }
     .navmenu a {
       color: rgba(255, 255, 255, 0.8);
@@ -107,127 +107,275 @@
       text-decoration: none;
     }
     .navmenu a::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        transform: scaleX(0);
-        height: 2px;
-        bottom: -5px;
-        left: 0;
-        background-color: var(--secondary-color);
-        transform-origin: bottom right;
-        transition: transform 0.3s ease-out;
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--secondary-color);
+      transform-origin: bottom right;
+      transition: transform 0.3s ease-out;
     }
     .navmenu a:hover::after, .navmenu .active::after {
-        transform: scaleX(1);
-        transform-origin: bottom left;
+      transform: scaleX(1);
+      transform-origin: bottom left;
     }
     .navmenu a:hover, .navmenu .active {
       color: var(--text-color-light);
     }
     .contact-btn {
-        background: var(--secondary-color);
-        color: var(--primary-color);
-        border-radius: 50px;
-        padding: 9px 25px;
-        font-weight: 700;
-        font-family: var(--heading-font);
-        transition: all 0.3s;
-        flex-shrink: 0;
+      background: var(--secondary-color);
+      color: var(--primary-color) !important;
+      border-radius: 50px;
+      padding: 9px 25px;
+      font-weight: 700;
+      font-family: var(--heading-font);
+      transition: all 0.3s;
+      flex-shrink: 0;
     }
     .contact-btn:hover {
+      background: #fff;
+      color: var(--primary-color) !important;
+      transform: translateY(-2px);
+    }
+
+    /* Mobile Navigation */
+    .mobile-nav-toggle {
+      color: var(--text-color-light);
+      font-size: 28px;
+      cursor: pointer;
+      line-height: 0;
+      transition: 0.5s;
+    }
+
+    @media (max-width: 991.98px) {
+      .navmenu {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(13, 89, 82, 0.95);
+        transition: 0.3s;
+        z-index: 996;
+      }
+
+      .navmenu.mobile-nav-active {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .navmenu.mobile-nav-active ul {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        padding: 0 20px;
+      }
+      .navmenu li {
+        margin: 0;
+        width: 100%;
+      }
+      .navmenu a, .navmenu a:focus {
+        padding: 12px 20px;
+        font-size: 20px;
+        color: var(--text-color-light);
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
+    .navmenu .mobile-contact-btn {
+        background: var(--secondary-color);
+        color: var(--primary-color) !important;
+        padding: 10px 30px;
+        border-radius: 50px;
+        font-weight: 700;
+        transition: all 0.3s;
+        display: inline-block;
+        margin-top: 20px;
+        font-size: 18px !important;
+    }
+    .navmenu .mobile-contact-btn:hover {
         background: #fff;
-        color: var(--primary-color);
-        transform: translateY(-2px);
+        color: var(--primary-color) !important;
     }
 
     .main {
-        padding-top: 60px;
+      padding-top: 60px;
     }
-    
-    /* General Section Styles */
     .section {
-        padding: 60px 0;
+      padding: 60px 0;
+    }
+    .section.bg-light {
+        background-color: #fff !important;
     }
     .section-title {
-        text-align: center;
-        padding-bottom: 40px;
-        position: relative;
+      text-align: center;
+      padding-bottom: 40px;
+      position: relative;
     }
     .section-title h2 {
-        font-family: var(--heading-font);
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: var(--primary-color);
-        margin-bottom: 15px;
+      font-family: var(--heading-font);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 15px;
     }
-    /* Modified style for the descriptive phrase */
     .section-title p {
-        background: var(--secondary-color); /* Yellow background */
-        color: var(--primary-color); /* Dark text for readability */
-        padding: 6px 18px; /* Smaller padding */
-        border-radius: 50px;
-        display: inline-block;
-        font-weight: 600;
-        font-size: 0.9rem; /* Smaller text */
-        margin-bottom: 20px;
-    }
-  
-    /* About Section */
-    #about .profile-img {
-      border-radius: 1.5rem;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    }
-    #about h3 {
-        font-family: var(--heading-font);
-        font-weight: 700;
-        color: var(--primary-color);
-        font-size: 1.8rem;
-    }
-    #about .personal-info-list {
-        list-style: none;
-        padding: 0;
-        margin-top: 1.5rem;
-    }
-    #about .personal-info-list li {
-        display: flex;
-        align-items: center;
-        padding: 10px 0;
-    }
-    #about .personal-info-list i {
-        font-size: 1.2rem;
-        color: var(--secondary-color);
-        margin-left: 15px;
-        width: 20px;
-    }
-    #about .personal-info-list strong {
-        font-weight: 700;
-        color: var(--primary-color);
-        margin-left: 10px;
-        min-width: 110px;
+      background: var(--secondary-color);
+      color: var(--primary-color);
+      padding: 6px 18px;
+      border-radius: 50px;
+      display: inline-block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
     }
 
-    /* Skills & Experience Sections */
-    .skills-card {
-        background: #fff;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        height: 100%;
+    /* Redesigned About Section */
+    #about .profile-img-wrapper {
+        position: relative;
+        display: inline-block;
     }
-    .skills-card .icon-wrapper {
-        font-size: 2.5rem;
+    #about .profile-img-wrapper::before {
+        content: '';
+        position: absolute;
+        inset: -15px;
+        border: 2px dashed var(--secondary-color);
+        border-radius: 2rem;
+        opacity: 0.5;
+        transition: all 0.4s ease;
+    }
+    #about .profile-img-wrapper:hover::before {
+        transform: rotate(15deg);
+        opacity: 1;
+    }
+    #about .profile-img {
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      transition: transform 0.4s ease;
+    }
+    #about .profile-img-wrapper:hover .profile-img {
+        transform: scale(1.05);
+    }
+    #about h3 {
+      font-family: var(--heading-font);
+      font-weight: 800;
+      color: var(--primary-color);
+      font-size: 2rem;
+    }
+    #about .about-text .highlight {
         color: var(--secondary-color);
-        margin-bottom: 15px;
-    }
-    .skills-card h4 {
-        font-family: var(--heading-font);
         font-weight: 700;
-        font-size: 1.3rem;
+    }
+    .info-grid {
+        margin-top: 2rem;
+    }
+    .info-block {
+        display: flex;
+        align-items: center;
+        background: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #e5e7eb;
+    }
+    .info-block i {
+      font-size: 1.5rem;
+      color: var(--secondary-color);
+      margin-left: 15px;
+    }
+    .info-block span {
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+    .about-buttons {
+        margin-top: 2rem;
+    }
+    .btn-custom {
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-family: var(--heading-font);
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        margin: 5px;
+    }
+    .btn-custom-primary {
+        background: var(--secondary-color);
         color: var(--primary-color);
     }
+    .btn-custom-primary:hover {
+        background: #f8b03d;
+        color: var(--primary-color);
+        transform: translateY(-3px);
+    }
+    .btn-custom-secondary {
+        background: transparent;
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+    }
+    .btn-custom-secondary:hover {
+        background: var(--primary-color);
+        color: var(--text-color-light);
+    }
+
+    /* Stats Section */
+    .stats-section {
+        background-color: var(--background-color);
+        padding: 60px 0;
+        border-top: 1px solid #e1e9e8;
+    }
+    .stats-item {
+        text-align: center;
+        color: var(--text-color);
+    }
+    .stats-item .counter {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        font-family: var(--heading-font);
+    }
+    .stats-item p {
+        font-weight: 600;
+        margin-top: 5px;
+        color: var(--text-color);
+    }
+    
+    /* Skills & Experience Sections */
+    .skills-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      height: 100%;
+      transition: all 0.3s;
+      border-bottom: 4px solid transparent;
+    }
+    .skills-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(13, 89, 82, 0.1);
+        border-bottom-color: var(--secondary-color);
+    }
+    .skills-card .icon-wrapper {
+      font-size: 2.5rem;
+      color: var(--secondary-color);
+      margin-bottom: 15px;
+    }
+    .skills-card h4 {
+      font-family: var(--heading-font);
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--primary-color);
+    }
     .experience-timeline {
-        position: relative;
+      position: relative;
     }
     .experience-timeline::before {
       content: '';
@@ -236,7 +384,7 @@
       right: 12px;
       height: 100%;
       width: 4px;
-      background: #e0e7ff;
+      background: #e1e9e8;
       border-radius: 2px;
     }
     .timeline-item {
@@ -256,101 +404,105 @@
       border: 4px solid var(--background-color);
     }
     .timeline-item h4 {
-        font-family: var(--heading-font);
-        color: var(--primary-color);
-        font-size: 1.5rem;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
+      font-family: var(--heading-font);
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
     }
     .timeline-item h4 i {
-        font-size: 1.4rem;
-        color: var(--secondary-color);
-        margin-left: 10px;
+      font-size: 1.4rem;
+      color: var(--secondary-color);
+      margin-left: 10px;
     }
     .timeline-item h5 {
-        background: var(--primary-color);
-        color: #fff;
-        padding: 5px 15px;
-        display: inline-block;
-        font-size: 0.8rem;
-        font-weight: 500;
-        border-radius: 20px;
-        margin-bottom: 10px;
+      background: rgba(13, 89, 82, 0.1);
+      color: var(--primary-color);
+      padding: 5px 15px;
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 20px;
+      margin-bottom: 10px;
     }
     .timeline-item ul {
-        padding-right: 20px;
-        margin-top: 10px;
-        list-style: square;
+      list-style: square; /* Reverted to previous format */
+      padding-right: 20px;
+    }
+    .timeline-item li { /* Removed custom framing */
+        margin-bottom: 10px;
+    }
+    .timeline-note {
+        text-align: center;
+        font-style: italic;
+        color: #6c757d;
+        margin: -20px 0 40px 0;
+        font-size: 0.9rem;
     }
     .certificate-btn {
-        background-color: var(--secondary-color);
-        color: #fff;
-        padding: 4px 12px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 0.75rem;
-        margin-right: 10px;
-        display: inline-flex;
-        align-items: center;
+      background-color: var(--secondary-color);
+      color: var(--text-color-light);
+      padding: 3px 10px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.7rem;
+      margin-right: 10px;
+      display: inline-flex;
+      align-items: center;
+      transition: all 0.3s;
     }
     .certificate-btn:hover {
-        background-color: #d48c1a;
-        color: #fff;
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+      border-color: var(--secondary-color);
     }
     .certificate-btn .bi-patch-check-fill {
-        color: #3b82f6;
-        margin-left: 4px;
-        font-size: 1.1em;
-    }
-
-    /* Footer */
-    .footer {
-        padding: 40px 0;
-        background: var(--primary-color);
-        color: rgba(255,255,255,0.7);
-    }
-    .footer .copyright {
-        text-align: center;
-    }
-    .footer .social-links a {
-        color: rgba(255,255,255,0.7);
-        margin: 0 10px;
-        font-size: 1.2rem;
-        transition: 0.3s;
-    }
-    .footer .social-links a:hover {
-        color: var(--secondary-color);
+      color: #6663ff; /* Yellow icon */
+      margin-left: 6px;
+      font-size: 1em;
     }
     
-    .scroll-top {
-        position: fixed;
-        visibility: hidden;
-        opacity: 0;
-        right: 15px;
-        bottom: 15px;
-        z-index: 999;
-        background: var(--secondary-color);
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        transition: all 0.4s;
+    /* Final Quote */
+    .final-quote-container {
+        text-align: center;
+        margin-top: 60px;
+        padding: 30px;
+  
+        border-radius: 15px;
     }
-    .scroll-top i {
-        font-size: 24px;
-        color: #fff;
-        line-height: 0;
+    .final-quote-container h3 {
+        color: var(--text-color);
+        font-size: 1.3rem;
+        font-style: italic;
     }
-    .scroll-top:hover {
-        background: var(--primary-color);
-        color: #fff;
+/* Footer */
+    .footer {
+      padding: 40px 0;
+      background: var(--primary-color);
+      color: rgba(255,255,255,0.7);
     }
-    .scroll-top.active {
-        visibility: visible;
-        opacity: 1;
+    .footer .copyright {
+      text-align: center;
+    }
+    .footer .social-links a {
+      color: rgba(255,255,255,0.7);
+      margin: 0 10px;
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+    .footer .social-links a:hover {
+      color: var(--secondary-color);
     }
 
+     @media (max-width: 767.98px) {
+       .footer .container {
+        flex-direction: column;
+        gap: 15px;
+      }
+    
+    }
   </style>
 </head>
 
@@ -360,21 +512,21 @@
 
   <header id="header" class="header d-flex align-items-center">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-      
       <a href="index.html" class="logo d-flex align-items-center">
         <h1><i class="bi bi-code-slash"></i> أحمد نزّال</h1>
       </a>
-
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.html">الصفحة الرئيسية</a></li>
           <li><a href="about.html" class="active">من أنا</a></li>
           <li><a href="achievements.html">إنجازاتي</a></li>
+          <li class="d-lg-none"><a href="contact.html" class="mobile-contact-btn">تواصل معي</a></li>
         </ul>
       </nav>
-
-      <a class="btn contact-btn" href="contact.html">تواصل معي</a>
-
+      <div class="d-flex align-items-center">
+          <a class="btn contact-btn d-none d-lg-flex" href="contact.html">تواصل معي</a>
+          <i class="mobile-nav-toggle d-lg-none bi bi-list"></i>
+      </div>
     </div>
   </header>
 
@@ -386,23 +538,75 @@
             <h2>من أنا</h2>
             <p>لمحة عني، مهاراتي، وقصتي</p>
         </div>
-        <div class="row gy-4 align-items-center" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-lg-5" data-aos="fade-right">
-            <img src="assets/img/profile-img.PNG" class="img-fluid profile-img" alt="Profile Picture of Ahmad Nazzal">
+        <div class="row gy-5 align-items-center">
+          <div class="col-lg-5" data-aos="fade-right" data-aos-delay="100">
+            <div class="profile-img-wrapper">
+                <img src="assets/img/profile-img.PNG" class="img-fluid profile-img" alt="Profile Picture of Ahmad Nazzal">
+            </div>
           </div>
-          <div class="col-lg-7" data-aos="fade-left">
+          <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
             <h3>مطور برمجيات وكاتب إبداعي</h3>
-            <p class="fst-italic py-3">
-مطور ويب بخبرة في تطوير الواجهات وتصميم المواقع، عملت على عدة مشاريع حرة وقدّمت دعماً أكاديمياً في المجال التقني. أمتلك خلفية قوية في البرمجة والتصميم ، إلى جانب تدريب في هندسة البرمجيات وإدارة وبدء المشاريع الناجحة. كما أهوى الكتابة وأدمج بين الجانب التقني والإبداعي في أعمالي.            </p>
-            <ul class="personal-info-list">
-                <li><i class="bi bi-person"></i> <strong>الاسم:</strong> <span>أحمد سائد نزال</span></li>
-                <li><i class="bi bi-telephone"></i> <strong>الهاتف:</strong> <span> 56-990-0290(970)+</span></li>
-                <li><i class="bi bi-envelope"></i> <strong>البريد الإلكتروني:</strong> <span>a.nazzal2019@gmail.com</span></li>
-                <li><i class="bi bi-geo-alt"></i> <strong>الموقع:</strong> <span>جنين، فلسطين</span></li>
-            </ul>
+            <p class="about-text py-3">
+              مطور ويب بخبرة في <span class="highlight">تطوير الواجهات وتصميم المواقع</span>، عملت على عدة مشاريع حرة وقدّمت دعماً أكاديمياً في المجال التقني. أمتلك خلفية قوية في البرمجة والتصميم، إلى جانب تدريب في <span class="highlight">هندسة البرمجيات وإدارة المشاريع</span>. كما أهوى الكتابة وأدمج بين الجانب التقني والإبداعي في أعمالي.
+            </p>
+            <div class="info-grid row">
+                <div class="col-md-6">
+                    <div class="info-block">
+                        <i class="bi bi-person"></i>
+                        <span>أحمد سائد نزال</span>
+                    </div>
+                </div>
+                 <div class="col-md-6">
+                    <div class="info-block">
+                        <i class="bi bi-telephone"></i>
+                        <span>56-990-0290 (970) +</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="info-block">
+                        <i class="bi bi-geo-alt"></i>
+                        <span>جنين، فلسطين</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                     <div class="info-block">
+                        <i class="bi bi-envelope"></i>
+                        <span>a.nazzal2019@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-buttons">
+                <a href="https://drive.google.com/file/d/11CsFIg-pWl0pGSNZE6R3hcbQlmVFsRkD/view?usp=sharing" download class="btn-custom btn-custom-primary">تحميل السيرة الذاتية</a>
+                <a href="contact.html" class="btn-custom btn-custom-secondary">تواصل معي</a>
+            </div>
           </div>
         </div>
       </div>
+    </section>
+
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stats-item">
+                        <span class="counter" data-target="4">0</span>+
+                        <p>سنوات خبرة</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stats-item">
+                        <span class="counter" data-target="10">0</span>+
+                        <p>مشروع مكتمل</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12" data-aos="fade-up" data-aos-delay="300">
+                     <div class="stats-item">
+                        <span class="counter" data-target="7">0</span>+
+                        <p>شهادات معتمدة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="skills" class="skills section bg-light">
@@ -437,7 +641,7 @@
                 <div class="skills-card text-center">
                     <div class="icon-wrapper"><i class="bi bi-database-fill-gear"></i></div>
                     <h4>قواعد البيانات</h4>
-                    <p>خبرة جيدة في التعامل مع قواعد بيانات    MySQL بالاضافة الى Mongo DB</p>
+                    <p>خبرة جيدة في التعامل مع قواعد بيانات  MySQL بالاضافة الى Mongo DB</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
@@ -464,17 +668,22 @@
           <h2>التدريب والخبرات</h2>
           <p>رحلتي المهنية وأبرز المحطات التعليمية</p>
         </div>
+        <div class="timeline-note" data-aos="fade-up" data-aos-delay="50">
+            <p>يمكن التحقق من جميع الشهادات بالضغط على زر "شهادة"</p>
+        </div>
         <div class="row">
           <div class="col-lg-10 mx-auto">
             <div class="experience-timeline">
-              <div class="timeline-item" data-aos="fade-up">
-                <h4><i class="bi bi-code-slash"></i>مطور واجهات أمامية (عمل حر)</h4>
+              <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                <h4><i class="bi bi-code-slash"></i>مطور ويب  (عمل حر)</h4>
                 <h5>أكتوبر 2024 – الآن</h5>
                 <ul>
                   <li>بناء مواقع وتطبيقات ويب متجاوبة باستخدام HTML, CSS, JavaScript.</li>
                 </ul>
               </div>
-              <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+
+              
+              <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
                 <h4><i class="bi bi-layers-fill"></i>هندسة البرمجيات
                   <a href="https://coursera.org/share/b6619bf6ae0fa25ff3090c6b9b3d6f3b" target="_blank" class="certificate-btn">شهادة<i class="bi bi-patch-check-fill"></i></a>
                 </h4>
@@ -482,7 +691,7 @@
                 <p><em>جامعة هونغ كونغ (عن بعد)</em></p>
                 <ul><li>اكتسبت معرفة قوية في عملية تطوير البرمجيات، بما في ذلك التحليل، التصميم (OOP)، أنماط التصميم، UML، الاختبار، وأدوات إدارة المشاريع.</li></ul>
               </div>
-              <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
                 <h4><i class="bi bi-clipboard-check-fill"></i>أساسيات إدارة المشاريع
                   <a href="https://coursera.org/share/b779981c9d7129554f2494ba1df9a808" target="_blank" class="certificate-btn">شهادة<i class="bi bi-patch-check-fill"></i></a>
                 </h4>
@@ -490,7 +699,7 @@
                 <p><em>جوجل (عن بعد)</em></p>
                 <ul><li>تعلمت أدوار إدارة المشاريع، دورة حياة المشروع، والمنهجيات، وكيف يؤثر الهيكل التنظيمي وثقافة الشركة على نجاح المشروع.</li></ul>
               </div>
-              <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+              <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
                 <h4><i class="bi bi-lightbulb-fill"></i>بدء مشروع ناجح
                     <a href="https://coursera.org/share/25023286bb99c852f022b524f17b1241" target="_blank" class="certificate-btn">شهادة<i class="bi bi-patch-check-fill"></i></a>
                 </h4>
@@ -498,7 +707,7 @@
                 <p><em>جوجل (عن بعد)</em></p>
                 <ul><li>تعلمت أن مرحلة البدء ضرورية لتحديد أهداف المشروع ونطاقه، إنشاء ميثاق المشروع، تحليل أصحاب المصلحة، وتوضيح الأدوار باستخدام مخططات RACI.</li></ul>
               </div>
-              <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+              <div class="timeline-item" data-aos="fade-up" data-aos-delay="600">
                 <h4><i class="bi bi-clock-history"></i>إدارة الوقت بفعالية
                     <a href="https://coursera.org/share/0e0c01006873a5b63609e32b79273183" target="_blank" class="certificate-btn">شهادة<i class="bi bi-patch-check-fill"></i></a>
                 </h4>
@@ -506,7 +715,7 @@
                 <p><em>جامعة الفيصل (عن بعد)</em></p>
                 <ul><li>تعلمت مهارات إدارة الوقت الفعالة مثل التخطيط، تحديد الأهداف، تحديد الأولويات، واتخاذ القرار لزيادة الإنتاجية وإدارة المهام بكفاءة.</li></ul>
               </div>
-              <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
+              <div class="timeline-item" data-aos="fade-up" data-aos-delay="700">
                 <h4><i class="bi bi-easel2-fill"></i>مهارات العرض والتقديم
                     <a href="https://www.coursera.org/account/accomplishments/verify/O6XM8LYFCFV7" target="_blank" class="certificate-btn">شهادة<i class="bi bi-patch-check-fill"></i></a>
                 </h4>
@@ -514,6 +723,23 @@
                 <p><em>جامعة الفيصل (عن بعد)</em></p>
                 <ul><li>أكملت دورة في التواصل المقنع، مما أدى إلى تحسين مهاراتي اللفظية وغير اللفظية، والخطابة، واستهداف الجمهور، وتقديم العروض بثقة.</li></ul>
               </div>
+              <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                <h4><i class="bi bi-facebook"></i>تسويق المشاريع الصغيرة عبر فيسبوك
+                    <a href="https://www.coursera.org/account/accomplishments/verify/SV9PUQZVDB4D" target="_blank" class="certificate-btn">شهادة<i class="bi bi-patch-check-fill"></i></a>
+                </h4>
+                <h5>فبراير 2025</h5>
+                <p><em>موقع Coursera (عن بعد)</em></p>
+                <ul>
+                    <li>اكتساب مهارات إعداد صفحة فيسبوك احترافية.</li>
+                    <li>فهم ميزات الصفحة المختلفة واستخدامها بفعالية.</li>
+                    <li>تحقيق الأهداف التسويقية عبر إنشاء محتوى جذاب وحملات إعلانية.</li>
+                </ul>
+              </div>
+
+              <div class="final-quote-container" data-aos="fade-up" data-aos-delay="800">
+                  <h3>"كل إنجاز عظيم كان في البداية مجرد فكرة آمن بها شخص لم يتوقف عن المحاولة"</h3>
+              </div>
+
             </div>
           </div>
         </div>
@@ -522,7 +748,7 @@
 
   </main>
 
-  <footer class="footer">
+ <footer class="footer">
     <div class="container d-flex justify-content-between align-items-center">
       <div class="copyright">
         &copy; حقوق النشر 2025, <strong><span>أحمد نزال</span></strong>. جميع الحقوق محفوظة
@@ -535,13 +761,11 @@
     </div>
   </footer>
   
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <div id="preloader"></div>
-
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  
   <script src="assets/js/main.js"></script>
   
   <script>
@@ -549,12 +773,24 @@
       "use strict";
 
       AOS.init({
-        duration: 1000,
+        duration: 800,
         easing: 'ease-in-out',
         once: true,
         mirror: false
       });
 
+      // Mobile Nav Toggle
+      const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+      if (mobileNavToggleBtn) {
+        mobileNavToggleBtn.addEventListener('click', function(event) {
+          event.preventDefault();
+          const navmenu = document.querySelector('#navmenu');
+          navmenu.classList.toggle('mobile-nav-active');
+          this.classList.toggle('bi-list');
+          this.classList.toggle('bi-x');
+        });
+      }
+      
       // Flying icons generation
       const iconsContainer = document.querySelector('.flying-icons-bg');
       if(iconsContainer) {
@@ -570,6 +806,43 @@
         }
       }
 
+      // Counter Animation Script
+      const counters = document.querySelectorAll('.counter');
+      const speed = 200;
+
+      const startCounter = (counter) => {
+          const target = +counter.getAttribute('data-target');
+          
+          const updateCount = () => {
+              const count = +counter.innerText;
+              const increment = target / speed;
+
+              if (count < target) {
+                  counter.innerText = Math.ceil(count + increment);
+                  setTimeout(updateCount, 15);
+              } else {
+                  counter.innerText = target;
+              }
+          };
+          updateCount();
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  startCounter(entry.target);
+                  observer.unobserve(entry.target);
+              }
+          });
+      }, {
+          threshold: 0.5
+      });
+
+      counters.forEach(counter => {
+          observer.observe(counter);
+      });
+      
+      // Scroll-top button
       let scrollTop = document.querySelector('.scroll-top');
       function toggleScrollTop() {
         if (scrollTop) {
@@ -578,10 +851,42 @@
       }
       window.addEventListener('load', toggleScrollTop);
       document.addEventListener('scroll', toggleScrollTop);
-
+      if(scrollTop) {
+          scrollTop.addEventListener('click', (e) => {
+              e.preventDefault();
+              window.scrollTo({
+                  top: 0,
+                  behavior: 'smooth'
+              });
+          });
+      }
     });
   </script>
+<script>
+  // منع النقر بزر الماوس الأيمن
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
 
+  // منع فحص العنصر باستخدام مفاتيح الاختصار
+  document.onkeydown = function(e) {
+    if (e.keyCode == 123) { // F12
+      return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { // Ctrl+Shift+I
+      return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { // Ctrl+Shift+C
+      return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { // Ctrl+Shift+J
+      return false;
+    }
+    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { // Ctrl+U
+      return false;
+    }
+  };
+</script>
 </body>
 
 </html>

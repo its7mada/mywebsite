@@ -21,14 +21,14 @@
 
   <style>
     :root {
-      --primary-color: #0d5952; /* Deep Teal */
-      --secondary-color: #f7a01d; /* Warm Gold */
-      --background-color: #f5f7fa; /* Light Gray */
-      --text-color: #4a5568; /* Grayish Blue */
+      --primary-color: #0d5952;
+      --secondary-color: #f7a01d;
+      --background-color: #f5f7fa;
+      --text-color: #4a5568;
       --text-color-light: #ffffff;
       --heading-font: 'Tajawal', sans-serif;
       --body-font: 'Tajawal', sans-serif;
-      --logo-font: 'Aref Ruqaa', serif; 
+      --logo-font: 'Aref Ruqaa', serif;
     }
 
     body {
@@ -38,59 +38,54 @@
       position: relative;
       overflow-x: hidden;
     }
-
-    /* Flying Icons Background */
+    
+    /* ====== NEW: Flying Icons Background ====== */
     .flying-icons-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        overflow: hidden;
-        pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
     }
     .flying-icons-bg i {
-        position: absolute;
-        display: block;
-        color: rgba(44, 62, 80, 0.1);
-        bottom: -150px;
-        animation: fly 25s linear infinite;
+      position: absolute;
+      display: block;
+      color: rgba(13, 89, 82, 0.08);
+      bottom: -150px;
+      animation: fly 25s linear infinite;
     }
     @keyframes fly {
-        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-        100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
     }
-    
+
     /* Header & Navbar */
     .header {
-        transition: all 0.5s;
-        z-index: 997;
-        padding: 20px 0;
-        background: var(--primary-color);
+      transition: all 0.5s;
+      z-index: 997;
+      padding: 20px 0;
+      background: var(--primary-color);
     }
     .header .logo {
-        text-decoration: none;
-        flex-shrink: 0; /* Prevent logo from shrinking */
+      text-decoration: none;
+      flex-shrink: 0;
     }
     .header .logo h1 {
-        font-family: var(--logo-font);
-        font-weight: 700;
-        color: var(--secondary-color);
-        margin: 0;
-        font-size: 32px;
+      font-family: var(--logo-font);
+      font-weight: 700;
+      color: var(--secondary-color);
+      margin: 0;
+      font-size: 32px;
     }
     .header .logo i {
-        font-size: 28px;
-        margin-left: 10px;
-        color: var(--secondary-color);
-        position: relative;
-        top: 2px;
-    }
-    
-    /* Navigation Menu Style */
-    .navmenu {
-        flex-grow: 1; /* Allow nav to take available space */
+      font-size: 28px;
+      margin-left: 10px;
+      color: var(--secondary-color);
+      position: relative;
+      top: 2px;
     }
     .navmenu ul {
       margin: 0;
@@ -98,10 +93,10 @@
       list-style: none;
       display: flex;
       align-items: center;
-      justify-content: center; /* Center the links */
+      justify-content: center;
     }
     .navmenu li {
-        position: relative;
+      position: relative;
     }
     .navmenu a {
       color: rgba(255, 255, 255, 0.8);
@@ -113,303 +108,460 @@
       text-decoration: none;
     }
     .navmenu a::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        transform: scaleX(0);
-        height: 2px;
-        bottom: -5px;
-        left: 0;
-        background-color: var(--secondary-color);
-        transform-origin: bottom right;
-        transition: transform 0.3s ease-out;
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--secondary-color);
+      transform-origin: bottom right;
+      transition: transform 0.3s ease-out;
     }
     .navmenu a:hover::after, .navmenu .active::after {
-        transform: scaleX(1);
-        transform-origin: bottom left;
+      transform: scaleX(1);
+      transform-origin: bottom left;
     }
     .navmenu a:hover, .navmenu .active {
       color: var(--text-color-light);
     }
-
-    .main {
-        padding-top: 60px;
+    .mobile-nav-toggle {
+      color: var(--text-color-light);
+      font-size: 28px;
+      cursor: pointer;
+      line-height: 0;
+      transition: 0.5s;
     }
-    
-    /* Contact Section Styles */
+    .contact-btn {
+      background: var(--secondary-color);
+      color: var(--primary-color);
+      border-radius: 50px;
+      padding: 9px 25px;
+      font-weight: 700;
+      font-family: var(--heading-font);
+      transition: all 0.3s;
+      flex-shrink: 0;
+      border: none;
+      text-decoration: none;
+    }
+    .contact-btn:hover {
+      background: #fff;
+      color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+    @media (max-width: 991.98px) {
+      .navmenu {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(13, 89, 82, 0.95);
+        transition: 0.3s;
+        z-index: 996;
+      }
+      .navmenu.mobile-nav-active {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .navmenu ul {
+        display: block;
+        position: relative;
+        text-align: center;
+      }
+      .navmenu li {
+        margin: 15px 0;
+      }
+      .navmenu a, .navmenu a:focus {
+        padding: 10px 20px;
+        font-size: 22px;
+        color: var(--text-color-light);
+      }
+    }
+    .navmenu .mobile-contact-btn {
+      background: var(--secondary-color);
+      color: var(--primary-color) !important;
+      padding: 10px 30px;
+      border-radius: 50px;
+      font-weight: 700;
+      transition: all 0.3s;
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 18px !important;
+    }
+    .navmenu .mobile-contact-btn:hover {
+      background: #fff;
+      color: var(--primary-color) !important;
+    }
+    .main {
+      padding-top: 60px;
+    }
     .section {
-        padding: 60px 0;
+      padding: 60px 0;
     }
     .section-title h2 {
-        font-family: var(--heading-font);
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: var(--primary-color);
-        text-align: center;
-        padding-bottom: 40px;
+      font-family: var(--heading-font);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      text-align: center;
+      padding-bottom: 40px;
     }
     .contact .info-card {
-        background: #fff;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        width: 100%;
-        margin-bottom: 24px;
-        display: flex;
-        align-items: center;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      width: 100%;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
     }
     .contact .info-card i {
-        font-size: 2rem;
-        color: var(--secondary-color);
-        margin-left: 20px;
+      font-size: 2rem;
+      color: var(--secondary-color);
+      margin-left: 20px;
     }
     .contact .info-card h4 {
-        font-size: 1.2rem;
-        font-weight: 600;
-        font-family: var(--heading-font);
-        color: var(--primary-color);
-        margin-bottom: 5px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      font-family: var(--heading-font);
+      color: var(--primary-color);
+      margin-bottom: 5px;
     }
     .contact .info-card p {
-        margin-bottom: 0;
-        font-size: 1rem;
+      margin-bottom: 0;
+      font-size: 1rem;
     }
     .contact .contact-form {
-        width: 100%;
-        background: #fff;
-        border-radius: 15px;
-        padding: 30px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        height: 100%;
+      width: 100%;
+      background: #fff;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      height: 100%;
+      position: relative;
     }
     .contact-form .form-control {
-        border-radius: 10px;
-        padding: 12px;
+      border-radius: 10px;
+      padding: 12px;
     }
     .contact-form .form-control:focus {
-        border-color: var(--secondary-color);
-        box-shadow: 0 0 0 0.25rem rgba(24, 188, 156, 0.25);
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 0.25rem rgba(247, 160, 29, 0.25);
     }
-    .contact-form button[type="submit"] {
-        background: var(--primary-color);
-        border: 0;
-        padding: 12px 35px;
-        color: #fff;
-        transition: 0.4s;
-        border-radius: 50px;
-        font-weight: 600;
-        font-family: var(--heading-font);
+    .contact-form button[type="button"] {
+      background: var(--primary-color);
+      border: 0;
+      padding: 12px 35px;
+      color: #fff;
+      transition: 0.4s;
+      border-radius: 50px;
+      font-weight: 600;
+      font-family: var(--heading-font);
     }
-    .contact-form button[type="submit"]:hover {
-        background: var(--secondary-color);
-        color: var(--primary-color);
+    .contact-form button[type="button"]:hover {
+      background: #073a35;
     }
 
-    /* Footer */
+    /* MODAL STYLES */
+    .modal-overlay { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(13, 89, 82, 0.7); align-items: center; justify-content: center; }
+    .modal-content { background-color: #fff; margin: auto; padding: 30px 40px; border-radius: 15px; width: 90%; max-width: 400px; text-align: center; box-shadow: 0 5px 25px rgba(0,0,0,0.15); animation: fadeIn 0.4s ease-out; }
+    @keyframes fadeIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .modal-content .modal-icon { color: var(--primary-color); font-size: 5rem; line-height: 1; margin-bottom: 15px; }
+    .modal-content h2 { color: var(--primary-color); font-size: 1.8rem; }
+    .modal-content .modal-button { background: var(--primary-color); color: #fff; cursor: pointer; border: 0; padding: 12px 35px; transition: 0.4s; border-radius: 50px; font-weight: 600; font-family: var(--heading-font); }
+    .modal-content .modal-button:hover { background: var(--secondary-color); color: var(--primary-color); }
+    
     .footer {
-        padding: 40px 0;
-        background: var(--primary-color);
-        color: rgba(255,255,255,0.7);
+      padding: 40px 0;
+      background: var(--primary-color);
+      color: rgba(255,255,255,0.7);
     }
     .footer .copyright {
-        text-align: center;
+      text-align: center;
     }
     .footer .social-links a {
-        color: rgba(255,255,255,0.7);
-        margin: 0 10px;
-        font-size: 1.2rem;
-        transition: 0.3s;
+      color: rgba(255,255,255,0.7);
+      margin: 0 10px;
+      font-size: 1.2rem;
+      transition: 0.3s;
     }
     .footer .social-links a:hover {
-        color: var(--secondary-color);
+      color: var(--secondary-color);
     }
-    
     .scroll-top {
-        position: fixed;
-        visibility: hidden;
-        opacity: 0;
-        right: 15px;
-        bottom: 15px;
-        z-index: 999;
-        background: var(--secondary-color);
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        transition: all 0.4s;
+      position: fixed;
+      visibility: hidden;
+      opacity: 0;
+      right: 15px;
+      bottom: 15px;
+      z-index: 999;
+      background: var(--secondary-color);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: all 0.4s;
     }
     .scroll-top i {
-        font-size: 24px;
-        color: #fff;
-        line-height: 0;
+      font-size: 24px;
+      color: #fff;
+      line-height: 0;
     }
     .scroll-top:hover {
-        background: var(--primary-color);
-        color: #fff;
+      background: var(--primary-color);
+      color: #fff;
     }
     .scroll-top.active {
-        visibility: visible;
-        opacity: 1;
+      visibility: visible;
+      opacity: 1;
+    }
+    @media (max-width: 767.98px) {
+       .footer .container {
+        flex-direction: column;
+        gap: 15px;
+      }
+    
     }
   </style>
-</head>
-
-<body class="contact-page">
+ </head>
+ 
+ <body class="contact-page">
   
   <div class="flying-icons-bg"></div>
-
+ 
   <header id="header" class="header d-flex align-items-center">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-      
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <h1><i class="bi bi-code-slash"></i> أحمد نزّال</h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html">الصفحة الرئيسية</a></li>
-          <li><a href="about.html">من أنا</a></li>
-          <li><a href="achievements.html">إنجازاتي</a></li>
-          <li><a href="contact.html" class="active">تواصل معي</a></li>
-        </ul>
-      </nav>
-
-      <div class="ms-auto">
-        </div>
-
-    </div>
+  <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+ 
+  <a href="index.html" class="logo d-flex align-items-center">
+  <h1><i class="bi bi-code-slash"></i> أحمد نزّال</h1>
+  </a>
+ 
+  <nav id="navmenu" class="navmenu">
+  <ul>
+  <li><a href="index.html">الصفحة الرئيسية</a></li>
+  <li><a href="about.html">من أنا</a></li>
+  <li><a href="achievements.html">إنجازاتي</a></li>
+  <li><a href="contact.html" class="active">تواصل معي</a></li>
+  </ul>
+  </nav>
+ 
+  <div class="d-flex align-items-center">
+  <a class="btn contact-btn d-none d-lg-flex" href="contact.html">تواصل معي</a>
+  <i class="mobile-nav-toggle d-lg-none bi bi-list"></i>
+  </div>
+ 
+  </div>
   </header>
-
+ 
   <main class="main">
-
-    <section id="contact" class="contact section">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>تواصل معي</h2>
-        </div>
-        <div class="row gy-4">
-          <div class="col-lg-5">
-            <div class="info-card" data-aos="fade-up" data-aos-delay="100">
-                <i class="bi bi-geo-alt-fill"></i>
-                <div>
-                  <h4>الموقع</h4>
-                  <p>جنين، فلسطين</p>
-                </div>
-            </div>
-            <div class="info-card" data-aos="fade-up" data-aos-delay="200">
-                <i class="bi bi-envelope-fill"></i>
-                <div>
-                  <h4>البريد الإلكتروني</h4>
-                  <p>a.nazzal2019@gmail.com</p>
-                </div>
-            </div>
-            <div class="info-card" data-aos="fade-up" data-aos-delay="300">
-                <i class="bi bi-telephone-fill"></i>
-                <div>
-                  <h4>اتصل بي</h4>
-                  <p> 56-990-0290(970)+</p>
-                </div>
-            </div>
-          </div>
-          <div class="col-lg-7">
-            <form action="forms/contact.php" method="post" class="contact-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-                <div class="col-md-6">
-                  <input type="text" name="name" id="name" class="form-control" placeholder="اسمك" required="">
-                </div>
-                <div class="col-md-6 ">
-                  <input type="email" id="email" class="form-control" name="email" placeholder="بريدك الإلكتروني" required="">
-                </div>
-                <div class="col-md-12">
-                  <input type="text" id="subject" class="form-control" name="subject" placeholder="الموضوع" required="">
-                </div>
-                <div class="col-md-12">
-                  <textarea class="form-control" id="message" name="message" rows="6" placeholder="الرسالة" required=""></textarea>
-                </div>
-                <div class="col-md-12 text-center">
-               
-                  <button type="submit" onclick="sendMail()">إرسال الرسالة</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
+ 
+  <section id="contact" class="contact section">
+  <div class="container" data-aos="fade-up">
+ 
+  <div class="section-title">
+  <h2>تواصل معي</h2>
+  </div>
+  <div class="row gy-4">
+  <div class="col-lg-5">
+  <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+  <i class="bi bi-geo-alt-fill"></i>
+  <div>
+  <h4>الموقع</h4>
+  <p>جنين، فلسطين</p>
+  </div>
+  </div>
+  <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+  <i class="bi bi-envelope-fill"></i>
+  <div>
+  <h4>البريد الإلكتروني</h4>
+  <p>a.nazzal2019@gmail.com</p>
+  </div>
+  </div>
+  <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+  <i class="bi bi-telephone-fill"></i>
+  <div>
+  <h4>اتصل بي</h4>
+  <p> 56-990-0290(970)+</p>
+  </div>
+  </div>
+  </div>
+  <div class="col-lg-7">
+ 
+  <form id="contact-form" class="contact-form" data-aos="fade-up" data-aos-delay="200">
+  <div class="row gy-4">
+  <div class="col-md-6">
+  <input type="text" name="name" id="name" class="form-control" placeholder="اسمك" required="">
+  </div>
+  <div class="col-md-6 ">
+  <input type="email" id="email" class="form-control" name="email" placeholder="بريدك الإلكتروني" required="">
+  </div>
+  <div class="col-md-12">
+  <input type="text" id="subject" class="form-control" name="subject" placeholder="الموضوع" required="">
+  </div>
+  <div class="col-md-12">
+  <textarea class="form-control" id="message" name="message" rows="6" placeholder="الرسالة" required=""></textarea>
+  </div>
+  <div class="col-md-12 text-center">
+ 
+  <button type="button" onclick="sendMail()">إرسال الرسالة</button>
+ 
+  </div>
+  </div>
+  </form>
+ 
+  </div>
+  </div>
+  </div>
+  </section>
+ 
   </main>
-
+ 
   <footer class="footer">
-    <div class="container d-flex justify-content-between align-items-center">
-      <div class="copyright">
-        &copy; حقوق النشر 2025, <strong><span>أحمد نزال</span></strong>. جميع الحقوق محفوظة
-      </div>
-      <div class="social-links">
-        <a href="https://github.com/its7mada" target="_blank"><i class="bi bi-github"></i></a>
-        <a href="https://www.linkedin.com/in/its7mada" target="_blank"><i class="bi bi-linkedin"></i></a>
-        <a href="https://www.instagram.com/its7mada/" target="_blank"><i class="bi bi-instagram"></i></a>
-      </div>
-    </div>
+  <div class="container d-flex justify-content-between align-items-center">
+  <div class="copyright">
+  &copy; حقوق النشر 2025, <strong><span>أحمد نزال</span></strong>. جميع الحقوق محفوظة
+  </div>
+  <div class="social-links">
+  <a href="https://github.com/its7mada" target="_blank"><i class="bi bi-github"></i></a>
+  <a href="https://www.linkedin.com/in/its7mada" target="_blank"><i class="bi bi-linkedin"></i></a>
+  <a href="https://www.instagram.com/its7mada/" target="_blank"><i class="bi bi-instagram"></i></a>
+  </div>
+  </div>
   </footer>
-  
+ 
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
+ 
   <div id="preloader"></div>
-
+ 
+  <div id="success-modal" class="modal-overlay">
+  <div class="modal-content">
+  <div class="modal-icon">
+  <i class="bi bi-check2-circle"></i>
+  </div>
+  <h2>تم استلام رسالتك بنجاح!</h2> <p>شكراً لتواصلك معي. سأقوم بالرد في أقرب وقت ممكن.</p>
+  <button id="close-modal-btn" class="modal-button">عفواً</button>
+  </div>
+  </div>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  
+ 
   <script src="assets/js/main.js"></script>
-
+ 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      "use strict";
-
-      AOS.init({
-        duration: 1000,
-        easing: 'ease-in-out',
-        once: true,
-        mirror: false
-      });
-
-      // Flying icons generation
-      const iconsContainer = document.querySelector('.flying-icons-bg');
-      if(iconsContainer) {
-        const icons = ['bi-code-slash', 'bi-braces', 'bi-git', 'bi-database', 'bi-bootstrap', 'bi-hdd-network-fill'];
-        for(let i = 0; i < 20; i++) {
-          const icon = document.createElement('i');
-          icon.className = `bi ${icons[(Math.random() * icons.length) | 0]}`;
-          icon.style.left = `${Math.random() * 100}vw`;
-          icon.style.animationDelay = `${Math.random() * 10}s`;
-          icon.style.animationDuration = `${15 + Math.random() * 10}s`;
-          icon.style.fontSize = `${25 + Math.random() * 35}px`; 
-          iconsContainer.appendChild(icon);
-        }
-      }
-
-      let scrollTop = document.querySelector('.scroll-top');
-      function toggleScrollTop() {
-        if (scrollTop) {
-          window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
-        }
-      }
-      window.addEventListener('load', toggleScrollTop);
-      document.addEventListener('scroll', toggleScrollTop);
-
-    });
+  document.addEventListener('DOMContentLoaded', () => {
+  "use strict";
+ 
+  AOS.init({
+  duration: 1000,
+  easing: 'ease-in-out',
+  once: true,
+  mirror: false
+  });
+ 
+  // Mobile Nav Toggle
+  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+  if (mobileNavToggleBtn) {
+  mobileNavToggleBtn.addEventListener('click', function(event) {
+  event.preventDefault();
+  const navmenu = document.querySelector('#navmenu');
+  navmenu.classList.toggle('mobile-nav-active');
+  this.classList.toggle('bi-list');
+  this.classList.toggle('bi-x');
+  });
+  }
+  
+  // ====== NEW: Flying icons generation ======
+  const iconsContainer = document.querySelector('.flying-icons-bg');
+  if(iconsContainer) {
+    const icons = ['bi-code-slash', 'bi-braces', 'bi-git', 'bi-database', 'bi-bootstrap', 'bi-hdd-network-fill'];
+    for(let i = 0; i < 20; i++) {
+      const icon = document.createElement('i');
+      icon.className = `bi ${icons[(Math.random() * icons.length) | 0]}`;
+      icon.style.left = `${Math.random() * 100}vw`;
+      icon.style.animationDelay = `${Math.random() * 10}s`;
+      icon.style.animationDuration = `${15 + Math.random() * 10}s`;
+      icon.style.fontSize = `${25 + Math.random() * 35}px`; 
+      iconsContainer.appendChild(icon);
+    }
+  }
+ 
+  // Scroll-top button
+  let scrollTop = document.querySelector('.scroll-top');
+  function toggleScrollTop() {
+  if (scrollTop) {
+  window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+  }
+  }
+  window.addEventListener('load', toggleScrollTop);
+  document.addEventListener('scroll', toggleScrollTop);
+  if(scrollTop) {
+  scrollTop.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({
+  top: 0,
+  behavior: 'smooth'
+  });
+  });
+  }
+ 
+  // ====== MODAL CLOSE LOGIC ======
+  const modal = document.getElementById('success-modal');
+  const closeModalBtn = document.getElementById('close-modal-btn');
+ 
+  if(modal && closeModalBtn) {
+  const closeModal = () => modal.style.display = 'none';
+  closeModalBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (event) => {
+  if (event.target === modal) {
+  closeModal();
+  }
+  });
+  }
+ 
+  });
   </script>
-</script>
-<script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init({
-        publicKey: "y7USp_dMgEjs1oM3C",
-      });
-   })();
-</script>
-<script src="assets\js\sendemail.js"></script>
-</body>
+ <script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+ </script>
+ <script type="text/javascript">
+  (function(){
+  emailjs.init({
+  publicKey: "y7USp_dMgEjs1oM3C",
+  });
+  })();
+ </script>
+ <script src="assets/js/sendemail.js"></script>
+ <script>
+  // منع النقر بزر الماوس الأيمن
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
 
-</html>
+  // منع فحص العنصر باستخدام مفاتيح الاختصار
+  document.onkeydown = function(e) {
+    if (e.keyCode == 123) { // F12
+      return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { // Ctrl+Shift+I
+      return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { // Ctrl+Shift+C
+      return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { // Ctrl+Shift+J
+      return false;
+    }
+    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { // Ctrl+U
+      return false;
+    }
+  };
+</script>
+ </body>
+ 
+ </html>
